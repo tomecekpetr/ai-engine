@@ -25,8 +25,8 @@ def main():
     
     try:
         # Step 1: Load data
-        log("\n1️⃣  Loading data from Excel...")
-        loader = DataLoader(f"{DATA_DIR}sample.xlsx")
+        log("\n1️⃣  Loading data from CSV...")
+        loader = DataLoader(f"{DATA_DIR}sample.csv")
         df = loader.load()
         log(f"✅ Loaded {len(df)} rows, {len(df.columns)} columns")
         
