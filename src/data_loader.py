@@ -49,11 +49,11 @@ class DataLoader:
         
         # Load file
         try:
-        # Auto-detect file format
-        if self.filepath.endswith('.xlsx') or self.filepath.endswith('.xls'):
-            self.df = pd.read_excel(self.filepath)
-        else:  # CSV
-            self.df = pd.read_csv(self.filepath)
+            # Auto-detect file format
+            if self.filepath.endswith('.xlsx') or self.filepath.endswith('.xls'):
+                self.df = pd.read_excel(self.filepath)
+            else:  # CSV
+                self.df = pd.read_csv(self.filepath)
             log(f"Loaded file: {self.filepath}")
             return self.df
         except Exception as e:
