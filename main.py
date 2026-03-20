@@ -38,10 +38,20 @@ def main():
         print("\nBasic Statistics:")
         print(stats)
         
-        # Step 3: Make predictions
-        log("\n3️⃣  Making predictions...")
+        # Step 3: Train model and make predictions
+        log("\n3️⃣  Training model and making predictions...")
         predictor = Predictor()
-        predictions = predictor.predict(df)
+        
+        # Prepare data for training
+        X = df[['Sales']].values  # Features (input)
+        y = df['Profit'].values   # Target (output)
+        
+        # Train model
+        score = predictor.train(X, y)
+        log(f"✅ Model trained with score: {score:.4f}")
+        
+        # Make predictions
+        predictions = predictor.predict(X)
         log(f"✅ Generated {len(predictions)} predictions")
         print("\nSample Predictions:")
         print(predictions[:5])
